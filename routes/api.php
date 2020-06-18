@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::post('properties', 'PropertyController@store');
+Route::post('properties/{uiid}/analytics', 'PropertyController@storeAnalytics');
+Route::put('properties/{uiid}/analytics/{id}', 'PropertyController@updateAnalytics');
+Route::get('properties/{uiid}/analytics', 'PropertyController@showAnalytics');
+Route::get('properties/summary', 'PropertyController@showSummary');
